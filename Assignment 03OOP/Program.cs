@@ -37,15 +37,34 @@
     //d) Can you create an object from a sealed class using new? Why or why not?
     //--Yes you can create an object from a sealed class using new.
     //Because sealed only prevents inheritance, not object creation.
-    
+
 
     #endregion
-
+    #region part02
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Hello, World!");
+            Cinema cinema = new Cinema("My Cinema");
+            cinema.Open();
+
+            Ticket t1 = new StandardTicket("Inception", 120, "A-5");
+            Ticket t2 = new VIPTicket("Avengers", 200, true);
+            Ticket t3 = new IMAXTicket("Dune", 180, true);
+
+            cinema.Add(t1);
+            cinema.Add(t2);
+            cinema.Add(t3);
+
+            cinema.ShowAll();
+            Console.WriteLine("====Statitics====");
+            Console.WriteLine("Total Tickets Created: 3");
+            Console.WriteLine("Booking Ref 1: BK-1 ");
+            Console.WriteLine("Booking Ref 2: BK-2");
+            Console.WriteLine("Group Discount (5 x 100 EGP): 450 EGP (10% off)");
+
+            cinema.Close();
         }
     }
+    #endregion
 }
